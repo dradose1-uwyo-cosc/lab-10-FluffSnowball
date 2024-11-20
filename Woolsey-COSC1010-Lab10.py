@@ -1,12 +1,9 @@
-# Your Name Here
+# Ben Woolsey
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Submission Date: 11/19/2024
+# Lab 10
+# Lab Section: 11
+# Sources: Class Powerpoint Slides
 
 #import modules you will need 
 
@@ -30,8 +27,26 @@ def get_hash(to_hash):
 #   - You can use the provided `get_hash()` function to generate the hashes.
 #   - Be careful, as "hello" and "hello " would generate a different hash.
 
+path = Path('/workspaces/lab-10-FluffSnowball/hash')
+pathTwo = Path('rockyou.txt')
+
 # You will need to include a try-except-catch block in your code.
 # - The reading of files needs to occur in the try blocks.
+try:
+        hashcontent = path.read_text()
+        contents = pathTwo.read_text()
+        lines = contents.splitlines()
+except FileNotFoundError:
+        print("Sorry, file not found")
+else:
+    for line in lines:
+        hashedLine = get_hash(line)
+        if hashedLine == hashcontent:
+              print(f"Plain text password is '{line}'")
+              break
+        else:
+              pass
+        
 
 
 # - Read in the value stored within `hash`.
